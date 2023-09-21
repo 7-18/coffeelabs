@@ -23,7 +23,7 @@ const getClasifications = async (req, res) => {
     if (clasifications.length === 0) {
       return res.status(404).send({ message: "No clasifications found." });
     }
-    return res.send(clasifications);
+    return res.status(200).send(clasifications);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
