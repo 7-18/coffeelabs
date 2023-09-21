@@ -53,7 +53,7 @@ const updateClasification = async (req, res) => {
     );
     res
       .status(202)
-      .send({ message: "Clasification updated successfully." }, clasification);
+      .send(clasification);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }

@@ -51,9 +51,7 @@ const updatePaymethod = async (req, res) => {
         setDefaultsOnInsert: true,
       }
     );
-    res
-      .status(202)
-      .send({ message: "Paymethod updated successfully." }, paymethod);
+    res.status(202).send(paymethod);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
