@@ -1,0 +1,19 @@
+{
+  "name": "coffeelabs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7-18/coffeelabs.git"
+  },
+  "author": "Kevin Brian Briceno (7-18)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/7-18/coffeelabs/issues"
+  },
+  "homepage": "https://github.com/7-18/coffeelabs#readme"
+}
