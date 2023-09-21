@@ -51,7 +51,9 @@ const updateClasification = async (req, res) => {
         setDefaultsOnInsert: true,
       }
     );
-    res.send({ message: "Clasification updated successfully." }, clasification);
+    res
+      .status(202)
+      .send({ message: "Clasification updated successfully." }, clasification);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
@@ -59,10 +61,10 @@ const updateClasification = async (req, res) => {
 
 const deleteClasification = async (req, res) => {
   try {
-    const clasification = await Clasification.findOneAndDelete({
+    await Clasification.findOneAndDelete({
       _id: req.params.id,
     });
-    res.send({ message: "Clasification deleted successfully." });
+    res.status(200).send({ message: "Clasification deleted successfully." });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
