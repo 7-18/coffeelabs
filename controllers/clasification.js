@@ -32,7 +32,7 @@ const getClasifications = async (req, res) => {
 const getClasificationById = async (req, res) => {
   try {
     const clasification = await Clasification.findOne({ _id: req.params.id });
-    return res.send(clasification);
+    return res.status(200).send(clasification);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
