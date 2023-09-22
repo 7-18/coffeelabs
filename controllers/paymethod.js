@@ -18,12 +18,25 @@ export const createPaymethod = async (req, res) => {
 };
 
 export const getPaymethods = async (req, res) => {
+  const page = parseInt(req.query.p) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
   try {
-    const paymethods = await Paymethod.find();
+    const skip = (page - 1) * limit;
+    const paymethods = await Paymethod.find().skip(skip).limit(limit);
+
     if (paymethods.length === 0) {
       return res.status(404).send({ message: "No paymethods found." });
     }
-    return res.status(200).send(paymethods);
+
+    const total = await Paymethod.countDocuments();
+    const totalPages = Math.ceil(total / limit);
+
+    return res.status(200).json({
+      paymethods,
+      page,
+      totalPages,
+    });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }

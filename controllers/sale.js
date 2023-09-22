@@ -46,9 +46,25 @@ export const createSale = async (req, res) => {
 };
 
 export const getSales = async (req, res) => {
+  const page = parseInt(req.query.p) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
   try {
-    const sales = await Sale.find();
-    return res.status(200).send(sales);
+    const skip = (page - 1) * limit;
+    const sales = await Sale.find().skip(skip).limit(limit);
+
+    if (sales.length === 0) {
+      return res.status(404).send({ message: "No sales found." });
+    }
+
+    const total = await Sale.countDocuments();
+    const totalPages = Math.ceil(total / limit);
+
+    return res.status(200).json({
+      sales,
+      page,
+      totalPages,
+    });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }

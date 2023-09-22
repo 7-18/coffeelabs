@@ -18,12 +18,25 @@ export const createClasification = async (req, res) => {
 };
 
 export const getClasifications = async (req, res) => {
+  const page = parseInt(req.query.p) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
   try {
-    const clasifications = await Clasification.find();
+    const skip = (page - 1) * limit;
+    const clasifications = await Clasification.find().skip(skip).limit(limit);
+
     if (clasifications.length === 0) {
       return res.status(404).send({ message: "No clasifications found." });
     }
-    return res.status(200).send(clasifications);
+
+    const total = await Clasification.countDocuments();
+    const totalPages = Math.ceil(total / limit);
+
+    return res.status(200).json({
+      clasifications,
+      page,
+      totalPages,
+    });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -51,9 +64,7 @@ export const updateClasification = async (req, res) => {
         setDefaultsOnInsert: true,
       }
     );
-    res
-      .status(202)
-      .send(clasification);
+    res.status(202).send(clasification);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }

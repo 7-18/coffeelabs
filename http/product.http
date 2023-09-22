@@ -13,7 +13,7 @@
 
 
 ### GET ALL PRODUCTS
-# GET http://localhost:4000/api/products/
+# GET http://localhost:4000/api/products?p=1&limit=5
 
 
 
@@ -23,7 +23,7 @@
 
 
 ### GET PRODUCTS BY CLASIFICATION
-# GET http://localhost:4000/api/products/clasification/650cc592013fa8252df78f1e
+# GET http://localhost:4000/api/products/clasification/650cc592013fa8252df78f1e?p=1&limit=5
 
 
 

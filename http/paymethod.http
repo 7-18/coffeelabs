@@ -9,7 +9,7 @@
 
 
 ### GET ALL PAYMETHODS
-# GET http://localhost:4000/api/paymethods/
+# GET http://localhost:4000/api/paymethods?p=1&limit=5
 
 
 

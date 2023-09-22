@@ -28,9 +28,25 @@ export const createProduct = async (req, res) => {
 };
 
 export const getProducts = async (req, res) => {
+  const page = parseInt(req.query.p) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
   try {
-    const products = await Product.find();
-    return res.status(200).send(products);
+    const skip = (page - 1) * limit;
+    const products = await Product.find().skip(skip).limit(limit);
+
+    if (products.length === 0) {
+      return res.status(404).send({ message: "No products found." });
+    }
+
+    const total = await Product.countDocuments();
+    const totalPages = Math.ceil(total / limit);
+
+    return res.status(200).json({
+      products,
+      page,
+      totalPages,
+    });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -46,9 +62,27 @@ export const getProductById = async (req, res) => {
 };
 
 export const getProductByClasification = async (req, res) => {
+  const page = parseInt(req.query.p) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
   try {
-    const products = await Product.find({ clasification_id: req.params.id });
-    return res.status(200).send(products);
+    const skip = (page - 1) * limit;
+    const products = await Product.find({ clasification_id: req.params.id })
+      .skip(skip)
+      .limit(limit);
+
+    if (products.length === 0) {
+      return res.status(404).send({ message: "No products found." });
+    }
+
+    const total = await Product.countDocuments();
+    const totalPages = Math.ceil(total / limit);
+
+    return res.status(200).json({
+      products,
+      page,
+      totalPages,
+    });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
