@@ -1,6 +1,6 @@
 import { Product } from "../models/product.js";
 
-const createProduct = async (req, res) => {
+export const createProduct = async (req, res) => {
   if (
     !req.body.name ||
     !req.body.description ||
@@ -27,7 +27,7 @@ const createProduct = async (req, res) => {
   }
 };
 
-const getProducts = async (req, res) => {
+export const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
     return res.status(200).send(products);
@@ -36,7 +36,7 @@ const getProducts = async (req, res) => {
   }
 };
 
-const getProductById = async (req, res) => {
+export const getProductById = async (req, res) => {
   try {
     const product = await Product.findOne({ _id: req.params.id });
     return res.status(200).send(product);
@@ -45,7 +45,16 @@ const getProductById = async (req, res) => {
   }
 };
 
-const updateProduct = async (req, res) => {
+export const getProductByClasification = async (req, res) => {
+  try {
+    const products = await Product.find({ clasification_id: req.params.id });
+    return res.status(200).send(products);
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+};
+
+export const updateProduct = async (req, res) => {
   try {
     const product = await Product.findOneAndUpdate(
       { _id: req.params.id },
@@ -68,19 +77,11 @@ const updateProduct = async (req, res) => {
   }
 };
 
-const deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   try {
     await Product.findOneAndDelete({ _id: req.params.id });
     return res.status(200).send({ message: "Product deleted successfully." });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
-};
-
-export default {
-  createProduct,
-  getProducts,
-  getProductById,
-  updateProduct,
-  deleteProduct,
 };
