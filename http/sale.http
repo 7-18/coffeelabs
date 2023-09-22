@@ -3,9 +3,9 @@
 # Content-Type: application/json
 
 # {
-#   "product_id": "650ccc68f1f472474d6e5a3a",
-#   "paymethod_id": "650cc99ccbaa1ff892f26452",
-#   "quantity": 15
+#   "product_id": "650d0895ecc24b20358b4e99",
+#   "paymethod_id": "650cca29cbaa1ff892f26456",
+#   "quantity": 2
 # }
 
 
@@ -16,4 +16,4 @@
 
 
 ### GET SALE BY ID
-# GET http://localhost:4000/api/sales/650cdd993ee6177923105a34
+# GET http://localhost:4000/api/sales/650d0982ecc24b20358b4eaa

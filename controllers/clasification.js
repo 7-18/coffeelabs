@@ -42,15 +42,6 @@ export const getClasifications = async (req, res) => {
   }
 };
 
-export const getClasificationById = async (req, res) => {
-  try {
-    const clasification = await Clasification.findOne({ _id: req.params.id });
-    return res.status(200).send(clasification);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-};
-
 export const updateClasification = async (req, res) => {
   try {
     const clasification = await Clasification.findOneAndUpdate(

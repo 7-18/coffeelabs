@@ -3,7 +3,7 @@
 # Content-Type: application/json
 
 # {
-#   "name": "Espresso"
+#   "name": "Ground Coffee"
 # }
 
 
@@ -13,13 +13,8 @@
 
 
 
-### GET CLASIFICATION BY ID
-# GET http://localhost:4000/api/clasifications/650cc5ff013fa8252df78f27
-
-
-
 ### UPDATE CLASIFICATION
-# PUT http://localhost:4000/api/clasifications/update/650cc5ff013fa8252df78f27
+# PUT http://localhost:4000/api/clasifications/update/650d055db8b6303337f3906a
 # Content-Type: application/json
 
 # {
@@ -29,4 +24,4 @@
 
 
 ### DELETE CLASIFICATION
-# DELETE http://localhost:4000/api/clasifications/delete/650cc5ff013fa8252df78f27
+# DELETE http://localhost:4000/api/clasifications/delete/650d055db8b6303337f3906a
