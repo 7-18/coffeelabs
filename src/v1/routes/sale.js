@@ -102,6 +102,14 @@ const router = express.Router();
  *                 type: number
  *                 default: 1
  *                 min: 1
+ *     required:
+ *      - product_id
+ *      - paymethod_id
+ *      - quantity
+ *     example:
+ *       product_id: 650e04022b05aa856ed40eaa
+ *       paymethod_id: 650cca29cbaa1ff892f26456
+ *       quantity: 2
  *     responses:
  *       201:
  *         description: CREATED
