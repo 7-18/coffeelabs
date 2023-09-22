@@ -129,7 +129,7 @@ const router = express.Router();
  */
 
 router.get("/", Sales.getSales);
-router.get("/:id", Sales.getSaleById);
 router.post("/create", Sales.createSale);
+router.get("/:id", Sales.getSaleById);
 
 export default router;
