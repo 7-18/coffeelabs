@@ -1,0 +1,45 @@
+### CREATE PRODUCT
+# POST http://localhost:4000/api/products/create
+# Content-Type: application/json
+
+# {
+#   "name": "Coffee Espresso",
+#   "description": "Coffee Espresso is a coffee drink made by forcing hot water under high pressure through finely ground coffee beans.",
+#   "stock": 10,
+#   "price": 1.99,
+#   "clasification_id": "650cc592013fa8252df78f1e"
+# }
+
+
+
+### GET ALL PRODUCTS
+# GET http://localhost:4000/api/products/
+
+
+
+### GET PRODUCT BY ID
+# GET http://localhost:4000/api/products/650ccc68f1f472474d6e5a3a
+
+
+
+### GET PRODUCTS BY CLASIFICATION
+# GET http://localhost:4000/api/products/clasification/650cc592013fa8252df78f1e
+
+
+
+## UPDATE PRODUCT
+# PUT http://localhost:4000/api/products/update/650ccc68f1f472474d6e5a3a
+# Content-Type: application/json
+
+# {
+#   "name": "Coffee Espresso",
+#   "description": "Coffee Espresso is a coffee drink made by forcing hot water under high pressure through finely ground coffee beans.",
+#   "stock": 25,
+#   "price": 1.99,
+#   "clasification_id": "650cc592013fa8252df78f1e"
+# }
+
+
+
+### DELETE PRODUCT
+# DELETE http://localhost:4000/api/products/delete/650ccc68f1f472474d6e5a3a

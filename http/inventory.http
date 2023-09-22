@@ -1,0 +1,7 @@
+### GET TOTAL STOCK
+# GET http://localhost:4000/api/inventory/total-stock
+
+
+
+### GET TOTAL SALES
+# GET http://localhost:4000/api/inventory/total-sales

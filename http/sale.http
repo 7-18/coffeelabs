@@ -1,0 +1,19 @@
+### CREATE SALE
+# POST http://localhost:4000/api/sales/create
+# Content-Type: application/json
+
+# {
+#   "product_id": "650ccc68f1f472474d6e5a3a",
+#   "paymethod_id": "650cc99ccbaa1ff892f26452",
+#   "quantity": 15
+# }
+
+
+
+### GET ALL SALES
+# GET http://localhost:4000/api/sales/
+
+
+
+### GET SALE BY ID
+# GET http://localhost:4000/api/sales/650cdd993ee6177923105a34

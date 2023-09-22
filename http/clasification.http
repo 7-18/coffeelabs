@@ -1,0 +1,32 @@
+### CREATE CLASIFICATION
+# POST http://localhost:4000/api/clasifications/create
+# Content-Type: application/json
+
+# {
+#   "name": "Espresso"
+# }
+
+
+
+### GET ALL CLASIFICATIONS
+# GET http://localhost:4000/api/clasifications/
+
+
+
+### GET CLASIFICATION BY ID
+# GET http://localhost:4000/api/clasifications/650cc5ff013fa8252df78f27
+
+
+
+### UPDATE CLASIFICATION
+# PUT http://localhost:4000/api/clasifications/update/650cc5ff013fa8252df78f27
+# Content-Type: application/json
+
+# {
+#   "name": "Black"
+# }
+
+
+
+### DELETE CLASIFICATION
+# DELETE http://localhost:4000/api/clasifications/delete/650cc5ff013fa8252df78f27

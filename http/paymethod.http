@@ -1,0 +1,32 @@
+### CREATE PAYMETHOD
+# POST http://localhost:4000/api/paymethods/create
+# Content-Type: application/json
+
+# {
+#   "name": "Cash"
+# }
+
+
+
+### GET ALL PAYMETHODS
+# GET http://localhost:4000/api/paymethods/
+
+
+
+### GET PAYMETHOD BY ID
+# GET http://localhost:4000/api/paymethods/650cca41cbaa1ff892f2645c
+
+
+
+### UPDATE PAYMETHOD
+# PUT http://localhost:4000/api/paymethods/update/650cca41cbaa1ff892f2645c
+# Content-Type: application/json
+
+# {
+#   "name": "Credit Card"
+# }
+
+
+
+### DELETE PAYMETHOD
+# DELETE http://localhost:4000/api/paymethods/delete/650cca41cbaa1ff892f2645c
