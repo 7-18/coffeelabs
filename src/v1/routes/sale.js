@@ -92,19 +92,16 @@ const router = express.Router();
  *             properties:
  *               product_id:
  *                 type: string
- *                 ref: "products"
- *                 required: true
+ *                 ref: "product"
  *                 example: 650e03d42b05aa856ed40ea2
  *               paymethod_id:
  *                 type: string
- *                 ref: "paymethods"
- *                 required: true
+ *                 ref: "paymethod"
  *                 example: 650cc99ccbaa1ff892f26452
  *               quantity:
  *                 type: number
  *                 default: 1
  *                 min: 1
- *                 required: true
  *     responses:
  *       201:
  *         description: CREATED
