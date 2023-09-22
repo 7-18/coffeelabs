@@ -116,7 +116,10 @@ const router = express.Router();
  *         content:
  *          application/json:
  *           schema:
- *             $ref: '#/components/schemas/Sale'
+ *             type: object
+ *             properties:
+ *               message:
+ *                 type: string
  *       400:
  *         description: FAILED
  *         content:
