@@ -112,7 +112,7 @@ const router = express.Router();
  *          application/json:
  *           schema:
  *             $ref: '#/components/schemas/Sale'
- *       500:
+ *       400:
  *         description: FAILED
  *         content:
  *          application/json:
