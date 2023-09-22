@@ -2,7 +2,7 @@ import { Sale } from "../models/sale.js";
 import { Product } from "../models/product.js";
 import { getWeather } from "../services/weather-api.js";
 
-const createSale = async (req, res) => {
+export const createSale = async (req, res) => {
   if (!req.body.product_id || !req.body.paymethod_id || !req.body.quantity) {
     return res.status(400).send({ message: "Content can not be empty!" });
   }
@@ -45,7 +45,7 @@ const createSale = async (req, res) => {
   }
 };
 
-const getSales = async (req, res) => {
+export const getSales = async (req, res) => {
   try {
     const sales = await Sale.find();
     return res.status(200).send(sales);
@@ -54,17 +54,11 @@ const getSales = async (req, res) => {
   }
 };
 
-const getSaleById = async (req, res) => {
+export const getSaleById = async (req, res) => {
   try {
     const sale = await Sale.findOne({ _id: req.params.id });
     return res.status(200).send(sale);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
-};
-
-export default {
-  createSale,
-  getSales,
-  getSaleById,
 };

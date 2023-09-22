@@ -1,6 +1,6 @@
 import { Paymethod } from "../models/paymethod.js";
 
-const createPaymethod = async (req, res) => {
+export const createPaymethod = async (req, res) => {
   if (!req.body.name) {
     return res.status(400).send({ message: "Content can not be empty!" });
   }
@@ -17,7 +17,7 @@ const createPaymethod = async (req, res) => {
   }
 };
 
-const getPaymethods = async (req, res) => {
+export const getPaymethods = async (req, res) => {
   try {
     const paymethods = await Paymethod.find();
     if (paymethods.length === 0) {
@@ -29,7 +29,7 @@ const getPaymethods = async (req, res) => {
   }
 };
 
-const getPaymethodById = async (req, res) => {
+export const getPaymethodById = async (req, res) => {
   try {
     const paymethod = await Paymethod.findOne({ _id: req.params.id });
     return res.status(200).send(paymethod);
@@ -38,7 +38,7 @@ const getPaymethodById = async (req, res) => {
   }
 };
 
-const updatePaymethod = async (req, res) => {
+export const updatePaymethod = async (req, res) => {
   try {
     const paymethod = await Paymethod.findOneAndUpdate(
       { _id: req.params.id },
@@ -57,7 +57,7 @@ const updatePaymethod = async (req, res) => {
   }
 };
 
-const deletePaymethod = async (req, res) => {
+export const deletePaymethod = async (req, res) => {
   try {
     await Paymethod.findOneAndDelete({
       _id: req.params.id,
@@ -66,12 +66,4 @@ const deletePaymethod = async (req, res) => {
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
-};
-
-export default {
-  createPaymethod,
-  getPaymethods,
-  getPaymethodById,
-  updatePaymethod,
-  deletePaymethod,
 };

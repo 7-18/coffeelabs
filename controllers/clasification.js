@@ -1,6 +1,6 @@
 import { Clasification } from "../models/clasification.js";
 
-const createClasification = async (req, res) => {
+export const createClasification = async (req, res) => {
   if (!req.body.name) {
     return res.status(400).send({ message: "Content can't be empty!" });
   }
@@ -17,7 +17,7 @@ const createClasification = async (req, res) => {
   }
 };
 
-const getClasifications = async (req, res) => {
+export const getClasifications = async (req, res) => {
   try {
     const clasifications = await Clasification.find();
     if (clasifications.length === 0) {
@@ -29,7 +29,7 @@ const getClasifications = async (req, res) => {
   }
 };
 
-const getClasificationById = async (req, res) => {
+export const getClasificationById = async (req, res) => {
   try {
     const clasification = await Clasification.findOne({ _id: req.params.id });
     return res.status(200).send(clasification);
@@ -38,7 +38,7 @@ const getClasificationById = async (req, res) => {
   }
 };
 
-const updateClasification = async (req, res) => {
+export const updateClasification = async (req, res) => {
   try {
     const clasification = await Clasification.findOneAndUpdate(
       { _id: req.params.id },
@@ -59,7 +59,7 @@ const updateClasification = async (req, res) => {
   }
 };
 
-const deleteClasification = async (req, res) => {
+export const deleteClasification = async (req, res) => {
   try {
     await Clasification.findOneAndDelete({
       _id: req.params.id,
@@ -68,12 +68,4 @@ const deleteClasification = async (req, res) => {
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
-};
-
-export default {
-  createClasification,
-  getClasifications,
-  getClasificationById,
-  updateClasification,
-  deleteClasification,
 };
