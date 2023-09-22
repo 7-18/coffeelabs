@@ -1,5 +1,5 @@
 import express from "express";
-import Clasification from "../controllers/clasification.js";
+import * as Clasification from "../controllers/clasification.js";
 
 const router = express.Router();
 
