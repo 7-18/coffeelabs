@@ -53,6 +53,32 @@ const router = express.Router();
  *             properties:
  *               message:
  *                 type: string
+ * /api/v1/sales/{id}:
+ *   get:
+ *     summary: Get one sale
+ *     tags: [Sale]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *          application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Sale'
+ *       500:
+ *         description: FAILED
+ *         content:
+ *          application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               message:
+ *                 type: string
  * /api/v1/sales/create:
  *   post:
  *     summary: Create a sale
@@ -92,32 +118,6 @@ const router = express.Router();
  *           schema:
  *             $ref: '#/components/schemas/Sale'
  *       400:
- *         description: FAILED
- *         content:
- *          application/json:
- *           schema:
- *             type: object
- *             properties:
- *               message:
- *                 type: string
- * /api/v1/sales/{id}:
- *   get:
- *     summary: Get one sale
- *     tags: [Sale]
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: string
- *         required: true
- *     responses:
- *       200:
- *         description: OK
- *         content:
- *          application/json:
- *           schema:
- *             $ref: '#/components/schemas/Sale'
- *       500:
  *         description: FAILED
  *         content:
  *          application/json:
