@@ -4,7 +4,7 @@ import mongoose from "mongoose";
  * @openapi
  * components:
  *  schemas:
- *    Clasification:
+ *    Classification:
  *      type: object
  *      properties:
  *        _id:
@@ -28,13 +28,13 @@ import mongoose from "mongoose";
  *        register_at: 2023-09-22T03:09:17.838+00:00
  *        update_at: 2023-09-22T13:45:02.838+00:00
  */
-const clasificationSchema = new mongoose.Schema({
+const classificationSchema = new mongoose.Schema({
   name: { type: String, minLength: 2, required: true },
   register_at: { type: Date, immutable: true, default: Date.now },
   update_at: { type: Date, default: Date.now },
 });
 
-export const Clasification = mongoose.model(
-  "clasification",
-  clasificationSchema
+export const Classification = mongoose.model(
+  "classification",
+  classificationSchema
 );

@@ -1,20 +1,20 @@
 import express from "express";
-import * as Clasification from "../../controllers/clasification.js";
+import * as Classification from "../../controllers/classification.js";
 
 const router = express.Router();
 
 /**
  * @openapi
  * tags:
- *   name: Clasification
+ *   name: Classification
  */
 
 /**
  * @openapi
- * /api/v1/clasifications:
+ * /api/v1/classifications:
  *   get:
- *     summary: Get all clasifications
- *     tags: [Clasification]
+ *     summary: Get all classifications
+ *     tags: [Classification]
  *     parameters:
  *       - in: query
  *         name: p
@@ -36,10 +36,10 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               clasifications:
+ *               classifications:
  *                 type: array
  *                 items:
- *                   $ref: '#/components/schemas/Clasification'
+ *                   $ref: '#/components/schemas/Classification'
  *                 page:
  *                   type: integer
  *                 totalPages:
@@ -53,10 +53,10 @@ const router = express.Router();
  *             properties:
  *               message:
  *                 type: string
- * /api/v1/clasifications/create:
+ * /api/v1/classifications/create:
  *   post:
- *     summary: Create a clasification
- *     tags: [Clasification]
+ *     summary: Create a classification
+ *     tags: [Classification]
  *     requestBody:
  *       required: true
  *       content:
@@ -79,7 +79,7 @@ const router = express.Router();
  *         content:
  *          application/json:
  *           schema:
- *             $ref: '#/components/schemas/Clasification'
+ *             $ref: '#/components/schemas/Classification'
  *       500:
  *         description: FAILED
  *         content:
@@ -89,10 +89,10 @@ const router = express.Router();
  *             properties:
  *               message:
  *                 type: string
- * /api/v1/clasifications/update/{id}:
+ * /api/v1/classifications/update/{id}:
  *   put:
- *     summary: Update a clasification
- *     tags: [Clasification]
+ *     summary: Update a classification
+ *     tags: [Classification]
  *     parameters:
  *       - in: path
  *         name: id
@@ -121,7 +121,7 @@ const router = express.Router();
  *         content:
  *          application/json:
  *           schema:
- *             $ref: '#/components/schemas/Clasification'
+ *             $ref: '#/components/schemas/Classification'
  *       500:
  *         description: FAILED
  *         content:
@@ -131,10 +131,10 @@ const router = express.Router();
  *             properties:
  *               message:
  *                 type: string
- * /api/v1/clasifications/delete/{id}:
+ * /api/v1/classifications/delete/{id}:
  *   delete:
- *     summary: Delete a clasification
- *     tags: [Clasification]
+ *     summary: Delete a classification
+ *     tags: [Classification]
  *     parameters:
  *       - in: path
  *         name: id
@@ -156,9 +156,9 @@ const router = express.Router();
  */
 
 router
-  .get("/", Clasification.getClasifications)
-  .post("/create", Clasification.createClasification)
-  .put("/update/:id", Clasification.updateClasification)
-  .delete("/delete/:id", Clasification.deleteClasification);
+  .get("/", Classification.getClassifications)
+  .post("/create", Classification.createClassification)
+  .put("/update/:id", Classification.updateClassification)
+  .delete("/delete/:id", Classification.deleteClassification);
 
 export default router;

@@ -6,7 +6,7 @@ export const createProduct = async (req, res) => {
     !req.body.description ||
     !req.body.stock ||
     !req.body.price ||
-    !req.body.clasification_id
+    !req.body.classification_id
   ) {
     return res.status(400).send({ message: "Content can not be empty!" });
   }
@@ -16,7 +16,7 @@ export const createProduct = async (req, res) => {
     description: req.body.description,
     stock: req.body.stock,
     price: req.body.price,
-    clasification_id: req.body.clasification_id,
+    classification_id: req.body.classification_id,
   });
 
   try {
@@ -61,13 +61,13 @@ export const getProductById = async (req, res) => {
   }
 };
 
-export const getProductByClasification = async (req, res) => {
+export const getProductByClassification = async (req, res) => {
   const page = parseInt(req.query.p) || 1;
   const limit = parseInt(req.query.limit) || 10;
 
   try {
     const skip = (page - 1) * limit;
-    const products = await Product.find({ clasification_id: req.params.id })
+    const products = await Product.find({ classification_id: req.params.id })
       .skip(skip)
       .limit(limit);
 
@@ -97,7 +97,7 @@ export const updateProduct = async (req, res) => {
         description: req.body.description,
         stock: req.body.stock,
         price: req.body.price,
-        clasification_id: req.body.clasification_id,
+        classification_id: req.body.classification_id,
         update_at: Date.now(),
       },
       {

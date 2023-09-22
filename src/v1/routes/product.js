@@ -7,7 +7,7 @@ const router = express.Router();
  * @openapi
  * tags:
  *   name: Product
-*/
+ */
 
 /**
  * @openapi
@@ -105,22 +105,22 @@ const router = express.Router();
  *               price:
  *                 type: integer
  *                 default: 1.99
- *               clasification_id:
+ *               classification_id:
  *                 type: string
- *                 ref: "clasification"
+ *                 ref: "classification"
  *                 example: 650d0472b8b6303337f3905a
  *     required:
  *       - name
  *       - description
  *       - stock
  *       - price
- *       - clasification_id
+ *       - classification_id
  *     example:
  *       name: Organic Coffee Frappuccino
  *       description: Organic Coffee Frappuccino is a coffee drink made by forcing hot water under high pressure through finely ground coffee beans.
  *       stock: 5
  *       price: 1.99
- *       clasification_id: 650d055db8b6303337f3906a
+ *       classification_id: 650d055db8b6303337f3906a
  *     responses:
  *       201:
  *         description: CREATED
@@ -169,22 +169,22 @@ const router = express.Router();
  *               price:
  *                 type: integer
  *                 default: 1.99
- *               clasification_id:
+ *               classification_id:
  *                 type: string
- *                 ref: "clasification"
+ *                 ref: "classification"
  *                 example: 650d0472b8b6303337f3905a
  *     required:
  *       - name
  *       - description
  *       - stock
  *       - price
- *       - clasification_id
+ *       - classification_id
  *     example:
  *       name: Natural Coffee Espresso
  *       description: Coffee Espress is a coffee drink made by forcing hot water under high pressure through finely ground coffee beans.
  *       stock: 25
  *       price: 1.99
- *       clasification_id: 650cc592013fa8252df78f1e
+ *       classification_id: 650cc592013fa8252df78f1e
  *     responses:
  *       202:
  *         description: UPDATED
@@ -221,9 +221,9 @@ const router = express.Router();
  *             properties:
  *               message:
  *                 type: string
- * /api/v1/products/clasification/{id}:
+ * /api/v1/products/classification/{id}:
  *   get:
- *     summary: Get all products by clasification
+ *     summary: Get all products by classification
  *     tags: [Product]
  *     parameters:
  *       - in: path
@@ -268,13 +268,13 @@ const router = express.Router();
  *             properties:
  *               message:
  *                 type: string
-*/
+ */
 
 router.get("/", Product.getProducts);
 router.get("/:id", Product.getProductById);
 router.post("/create", Product.createProduct);
 router.put("/update/:id", Product.updateProduct);
 router.delete("/delete/:id", Product.deleteProduct);
-router.get("/clasification/:id", Product.getProductByClasification);
+router.get("/classification/:id", Product.getProductByClassification);
 
 export default router;

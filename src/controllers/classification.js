@@ -1,50 +1,50 @@
-import { Clasification } from "../models/clasification.js";
+import { Classification } from "../models/classification.js";
 
-export const createClasification = async (req, res) => {
+export const createClassification = async (req, res) => {
   if (!req.body.name) {
     return res.status(400).send({ message: "Content can't be empty!" });
   }
 
-  const clasification = new Clasification({
+  const classification = new Classification({
     name: req.body.name,
   });
 
   try {
-    const savedClasification = await clasification.save();
-    return res.status(201).send(savedClasification);
+    const savedClassification = await classification.save();
+    return res.status(201).send(savedClassification);
   } catch (err) {
     return res.status(400).send({ message: err.message });
   }
 };
 
-export const getClasifications = async (req, res) => {
+export const getClassifications = async (req, res) => {
   const page = parseInt(req.query.p) || 1;
   const limit = parseInt(req.query.limit) || 10;
 
   try {
     const skip = (page - 1) * limit;
-    const clasifications = await Clasification.find().skip(skip).limit(limit);
+    const classifications = await Classification.find().skip(skip).limit(limit);
 
-    if (clasifications.length === 0) {
-      return res.status(404).send({ message: "No clasifications found." });
+    if (classifications.length === 0) {
+      return res.status(404).send({ message: "No classifications found." });
     }
 
-    const total = await Clasification.countDocuments();
+    const total = await Classification.countDocuments();
     const totalPages = Math.ceil(total / limit);
 
     return res.status(200).json({
-      clasifications,
+      classifications,
       page,
       totalPages,
     });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
-}
+};
 
-export const updateClasification = async (req, res) => {
+export const updateClassification = async (req, res) => {
   try {
-    const clasification = await Clasification.findOneAndUpdate(
+    const classification = await Classification.findOneAndUpdate(
       { _id: req.params.id },
       {
         name: req.body.name,
@@ -55,18 +55,18 @@ export const updateClasification = async (req, res) => {
         setDefaultsOnInsert: true,
       }
     );
-    res.status(202).send(clasification);
+    res.status(202).send(classification);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
 
-export const deleteClasification = async (req, res) => {
+export const deleteClassification = async (req, res) => {
   try {
-    await Clasification.findOneAndDelete({
+    await Classification.findOneAndDelete({
       _id: req.params.id,
     });
-    res.status(200).send({ message: "Clasification deleted successfully." });
+    res.status(200).send({ message: "Classification deleted successfully." });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }

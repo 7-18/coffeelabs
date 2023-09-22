@@ -29,9 +29,9 @@ import mongoose from "mongoose";
  *          default: 0
  *          min: 0
  *          required: true
- *        clasification_id:
+ *        classification_id:
  *          type: string
- *          ref: "clasifications"
+ *          ref: "classifications"
  *        register_at:
  *          type: date
  *          immutable: true
@@ -43,7 +43,7 @@ import mongoose from "mongoose";
  *        description: Organic Coffee Frappuccino is a coffee drink made by forcing hot water under high pressure through finely ground coffee beans.
  *        stock: 5
  *        price: 1.99
- *        clasification_id: 650d055db8b6303337f3906a
+ *        classification_id: 650d055db8b6303337f3906a
  *        register_at: 2023-09-22T03:09:17.838+00:00
  *        update_at: 2023-09-22T13:45:02.838+00:00
  */
@@ -53,9 +53,9 @@ const productSchema = new mongoose.Schema({
   description: { type: String, required: true },
   stock: { type: Number, default: 0, min: 0, required: true },
   price: { type: Number, default: 0, min: 0, required: true },
-  clasification_id: {
+  classification_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "clasification",
+    ref: "classification",
     required: true,
   },
   register_at: { type: Date, immutable: true, default: Date.now },
