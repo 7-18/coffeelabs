@@ -111,12 +111,11 @@ go to http://localhost:4000/api/v1/docs
 {
   "_id": "5e7c56c4719a504b9f40e4e2",
   "product_id": "650d055db8b6303337f3906a",
-  "payment_method": "Credit Card",
+  "paymethod_id": "650d055db8b6303337f3906a",
   "quantity": 3,
-  "total_amount": 38.97,
-  "register_at": "2023-09-22T09:15:42.123+00:00"
+  "sale_at": "2023-09-22T09:15:42.123+00:00"
 }
 ```
 
 ### Env 👀
-In the env_example file I leave a guide of what your private .env file should look like, please review it.
+The env_example file is a guide of what your private .env file should look like.
