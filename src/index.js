@@ -7,6 +7,7 @@ import Paymethod_v1 from "./v1/routes/paymethod.js";
 import Clasification_v1 from "./v1/routes/clasification.js";
 import Sales_v1 from "./v1/routes/sale.js";
 import Inventory_v1 from "./v1/routes/inventory.js";
+import { docs as docs_v1 } from "./v1/openapi/swagger.js";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use("/api/v1/inventory", Inventory_v1);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  docs_v1(app, PORT);
 });
 
 dbConnection();
